@@ -28,7 +28,7 @@ Partial Class Form1
         SaveAsToolStripMenuItem = New ToolStripMenuItem()
         SaveToolStripMenuItem = New ToolStripMenuItem()
         SplitContainer1 = New SplitContainer()
-        folderView = New TreeView()
+        rtbNumber = New RichTextBox()
         editorText = New RichTextBox()
         TextBox1 = New TextBox()
         navBar.SuspendLayout()
@@ -74,42 +74,52 @@ Partial Class Form1
         ' SplitContainer1
         ' 
         SplitContainer1.Dock = DockStyle.Fill
+        SplitContainer1.IsSplitterFixed = True
         SplitContainer1.Location = New Point(0, 24)
         SplitContainer1.Name = "SplitContainer1"
         ' 
         ' SplitContainer1.Panel1
         ' 
-        SplitContainer1.Panel1.Controls.Add(folderView)
+        SplitContainer1.Panel1.Controls.Add(rtbNumber)
         ' 
         ' SplitContainer1.Panel2
         ' 
         SplitContainer1.Panel2.Controls.Add(editorText)
         SplitContainer1.Panel2.Controls.Add(TextBox1)
         SplitContainer1.Size = New Size(952, 545)
-        SplitContainer1.SplitterDistance = 297
+        SplitContainer1.SplitterDistance = 28
         SplitContainer1.TabIndex = 1
         ' 
-        ' folderView
+        ' rtbNumber
         ' 
-        folderView.Dock = DockStyle.Fill
-        folderView.Location = New Point(0, 0)
-        folderView.Name = "folderView"
-        folderView.Size = New Size(297, 545)
-        folderView.TabIndex = 0
+        rtbNumber.BorderStyle = BorderStyle.FixedSingle
+        rtbNumber.DetectUrls = False
+        rtbNumber.Dock = DockStyle.Fill
+        rtbNumber.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        rtbNumber.Location = New Point(0, 0)
+        rtbNumber.Name = "rtbNumber"
+        rtbNumber.ReadOnly = True
+        rtbNumber.ScrollBars = RichTextBoxScrollBars.None
+        rtbNumber.Size = New Size(28, 545)
+        rtbNumber.TabIndex = 0
+        rtbNumber.Text = ""
+        rtbNumber.UseWaitCursor = True
         ' 
         ' editorText
         ' 
         editorText.AcceptsTab = True
+        editorText.BorderStyle = BorderStyle.None
         editorText.Dock = DockStyle.Fill
         editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         editorText.Location = New Point(0, 0)
         editorText.Name = "editorText"
-        editorText.Size = New Size(651, 545)
+        editorText.Size = New Size(920, 545)
         editorText.TabIndex = 1
         editorText.Text = ""
         ' 
         ' TextBox1
         ' 
+        TextBox1.BorderStyle = BorderStyle.None
         TextBox1.Location = New Point(2, 3)
         TextBox1.Multiline = True
         TextBox1.Name = "TextBox1"
@@ -145,8 +155,8 @@ Partial Class Form1
     Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenFolderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents folderView As TreeView
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents editorText As RichTextBox
+    Friend WithEvents rtbNumber As RichTextBox
 
 End Class
