@@ -86,7 +86,7 @@ Partial Class Form1
         SplitContainer1.Panel2.Controls.Add(editorText)
         SplitContainer1.Panel2.Controls.Add(TextBox1)
         SplitContainer1.Size = New Size(952, 545)
-        SplitContainer1.SplitterDistance = 264
+        SplitContainer1.SplitterDistance = 297
         SplitContainer1.TabIndex = 1
         ' 
         ' folderView
@@ -94,7 +94,7 @@ Partial Class Form1
         folderView.Dock = DockStyle.Fill
         folderView.Location = New Point(0, 0)
         folderView.Name = "folderView"
-        folderView.Size = New Size(264, 545)
+        folderView.Size = New Size(297, 545)
         folderView.TabIndex = 0
         ' 
         ' editorText
@@ -104,7 +104,7 @@ Partial Class Form1
         editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         editorText.Location = New Point(0, 0)
         editorText.Name = "editorText"
-        editorText.Size = New Size(684, 545)
+        editorText.Size = New Size(651, 545)
         editorText.TabIndex = 1
         editorText.Text = ""
         ' 
