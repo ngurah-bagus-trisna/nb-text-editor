@@ -1,55 +1,39 @@
 ﻿Imports System.Data.Common
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Form1
     Dim selectFile As New OpenFileDialog()
     Dim selectFolder As New FolderBrowserDialog()
     Dim saveAs As New SaveFileDialog()
-    Private updating As Boolean = False
-    Private totalLines As Integer = 0
 
-    Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
-        UpdateLineNumbers()
 
-        AddHandler editorText.TextChanged, AddressOf RichTextBox_TextChanged
-        AddHandler editorText.TextChanged, AddressOf RichTextBox_VScroll
-    End Sub
-
-    Private Sub RichTextBox_TextChanged(sender As Object, e As EventArgs)
+    Private Sub rtbMain_Scroll(sender As Object, e As EventArgs) Handles editorText.VScroll
         UpdateLineNumbers()
     End Sub
 
-    Private Sub RichTextBox_VScroll(sender As Object, e As EventArgs)
-        If Not updating Then
-            updating = True
-            rtbNumber.ScrollToCaret()
-            editorText.ScrollToCaret()
-            updating = False
-        End If
+    Private Sub rtbMain_TextChanged(sender As Object, e As EventArgs) Handles editorText.TextChanged
+        UpdateLineNumbers()
     End Sub
 
     Private Sub UpdateLineNumbers()
-        ' Menghitung total baris pada RichTextBox isi teks
-        totalLines = editorText.Lines.Length
+        labelNumber.Text = ""
+        Dim firstVisibleLine As Integer = editorText.GetLineFromCharIndex(editorText.GetCharIndexFromPosition(New Point(0, 0)))
 
-        ' Memperbarui teks Line Numbers
-        Dim lineNumberText As String = ""
-        For i As Integer = 1 To totalLines
-            lineNumberText &= i.ToString() & vbCrLf
+        ' Mendapatkan jumlah baris aktual dari RichTextBox
+        Dim lineCount As Integer = editorText.Lines.Length
+
+        For i As Integer = firstVisibleLine To firstVisibleLine + editorText.ClientSize.Height \ editorText.Font.Height
+            ' Mengecek apakah index baris melebihi jumlah baris aktual
+            If i < lineCount Then
+                labelNumber.Text &= i + 1 & vbCrLf
+            Else
+                Exit For
+            End If
         Next
-
-        ' Menetapkan teks Line Numbers ke RichTextBox Line Numbers
-        rtbNumber.Text = lineNumberText
-
-        ' Menetapkan tinggi Line Numbers agar sesuai dengan RichTextBox isi teks
-
-        ' Menetapkan posisi Line Numbers di sebelah kiri RichTextBox isi teks
-        rtbNumber.Left = 0
-        rtbNumber.Top = 0
     End Sub
 
-    Private Sub OpenFolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenFolderToolStripMenuItem.Click
 
-    End Sub
+
     Private Sub FileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.Click
 
         selectFile.Filter = "All files |*.*"
@@ -82,5 +66,6 @@ Public Class Form1
         End If
 
     End Sub
+
 
 End Class

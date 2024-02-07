@@ -23,12 +23,11 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         navBar = New MenuStrip()
-        OpenFolderToolStripMenuItem = New ToolStripMenuItem()
         FileToolStripMenuItem = New ToolStripMenuItem()
         SaveAsToolStripMenuItem = New ToolStripMenuItem()
         SaveToolStripMenuItem = New ToolStripMenuItem()
         SplitContainer1 = New SplitContainer()
-        rtbNumber = New RichTextBox()
+        labelNumber = New Label()
         editorText = New RichTextBox()
         TextBox1 = New TextBox()
         navBar.SuspendLayout()
@@ -40,18 +39,12 @@ Partial Class Form1
         ' 
         ' navBar
         ' 
-        navBar.Items.AddRange(New ToolStripItem() {OpenFolderToolStripMenuItem, FileToolStripMenuItem, SaveAsToolStripMenuItem, SaveToolStripMenuItem})
+        navBar.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, SaveAsToolStripMenuItem, SaveToolStripMenuItem})
         navBar.Location = New Point(0, 0)
         navBar.Name = "navBar"
         navBar.Size = New Size(952, 24)
         navBar.TabIndex = 0
         navBar.Text = "MenuStrip1"
-        ' 
-        ' OpenFolderToolStripMenuItem
-        ' 
-        OpenFolderToolStripMenuItem.Name = "OpenFolderToolStripMenuItem"
-        OpenFolderToolStripMenuItem.Size = New Size(84, 20)
-        OpenFolderToolStripMenuItem.Text = "Open Folder"
         ' 
         ' FileToolStripMenuItem
         ' 
@@ -80,7 +73,7 @@ Partial Class Form1
         ' 
         ' SplitContainer1.Panel1
         ' 
-        SplitContainer1.Panel1.Controls.Add(rtbNumber)
+        SplitContainer1.Panel1.Controls.Add(labelNumber)
         ' 
         ' SplitContainer1.Panel2
         ' 
@@ -90,20 +83,15 @@ Partial Class Form1
         SplitContainer1.SplitterDistance = 28
         SplitContainer1.TabIndex = 1
         ' 
-        ' rtbNumber
+        ' labelNumber
         ' 
-        rtbNumber.BorderStyle = BorderStyle.FixedSingle
-        rtbNumber.DetectUrls = False
-        rtbNumber.Dock = DockStyle.Fill
-        rtbNumber.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        rtbNumber.Location = New Point(0, 0)
-        rtbNumber.Name = "rtbNumber"
-        rtbNumber.ReadOnly = True
-        rtbNumber.ScrollBars = RichTextBoxScrollBars.None
-        rtbNumber.Size = New Size(28, 545)
-        rtbNumber.TabIndex = 0
-        rtbNumber.Text = ""
-        rtbNumber.UseWaitCursor = True
+        labelNumber.Dock = DockStyle.Fill
+        labelNumber.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        labelNumber.Location = New Point(0, 0)
+        labelNumber.Name = "labelNumber"
+        labelNumber.Size = New Size(28, 545)
+        labelNumber.TabIndex = 0
+        labelNumber.Text = "1"
         ' 
         ' editorText
         ' 
@@ -113,6 +101,8 @@ Partial Class Form1
         editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         editorText.Location = New Point(0, 0)
         editorText.Name = "editorText"
+        editorText.RightToLeft = RightToLeft.No
+        editorText.ScrollBars = RichTextBoxScrollBars.Vertical
         editorText.Size = New Size(920, 545)
         editorText.TabIndex = 1
         editorText.Text = ""
@@ -153,10 +143,9 @@ Partial Class Form1
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OpenFolderToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents editorText As RichTextBox
-    Friend WithEvents rtbNumber As RichTextBox
+    Friend WithEvents labelNumber As Label
 
 End Class
