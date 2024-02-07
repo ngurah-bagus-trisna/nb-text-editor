@@ -28,9 +28,9 @@ Partial Class Form1
         SaveToolStripMenuItem = New ToolStripMenuItem()
         SplitContainer1 = New SplitContainer()
         labelNumber = New Label()
+        editorText = New RichTextBox()
         statusFile = New StatusStrip()
         statusLabel = New ToolStripStatusLabel()
-        editorText = New RichTextBox()
         TextBox1 = New TextBox()
         navBar.SuspendLayout()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +98,20 @@ Partial Class Form1
         labelNumber.TabIndex = 0
         labelNumber.Text = "1"
         ' 
+        ' editorText
+        ' 
+        editorText.AcceptsTab = True
+        editorText.BorderStyle = BorderStyle.None
+        editorText.Dock = DockStyle.Fill
+        editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        editorText.Location = New Point(0, 0)
+        editorText.Name = "editorText"
+        editorText.RightToLeft = RightToLeft.No
+        editorText.ScrollBars = RichTextBoxScrollBars.Vertical
+        editorText.Size = New Size(920, 523)
+        editorText.TabIndex = 1
+        editorText.Text = " "
+        ' 
         ' statusFile
         ' 
         statusFile.Items.AddRange(New ToolStripItem() {statusLabel})
@@ -111,20 +125,6 @@ Partial Class Form1
         statusLabel.Name = "statusLabel"
         statusLabel.Size = New Size(119, 17)
         statusLabel.Text = "ToolStripStatusLabel1"
-        ' 
-        ' editorText
-        ' 
-        editorText.AcceptsTab = True
-        editorText.BorderStyle = BorderStyle.None
-        editorText.Dock = DockStyle.Fill
-        editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        editorText.Location = New Point(0, 0)
-        editorText.Name = "editorText"
-        editorText.RightToLeft = RightToLeft.No
-        editorText.ScrollBars = RichTextBoxScrollBars.Vertical
-        editorText.Size = New Size(920, 523)
-        editorText.TabIndex = 1
-        editorText.Text = ""
         ' 
         ' TextBox1
         ' 

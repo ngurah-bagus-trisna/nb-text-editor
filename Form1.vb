@@ -3,7 +3,6 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Form1
     Dim selectFile As New OpenFileDialog()
-    Dim selectFolder As New FolderBrowserDialog()
     Dim saveAs As New SaveFileDialog()
 
     Private Sub rtbMain_Scroll(sender As Object, e As EventArgs) Handles editorText.VScroll
@@ -43,17 +42,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        If String.IsNullOrEmpty(selectFile.FileName) Then
-            MessageBox.Show("Anda belum membuka file!. Gunakan Save As untuk menyimpan sebagai file baru!", "Warning!")
-            SaveAsToolStripMenuItem_Click(sender, e)
-        Else
-            Me.editorText.SaveFile(selectFile.FileName, RichTextBoxStreamType.PlainText)
-            MessageBox.Show("Save succesfully!", "Save")
-        End If
-
-    End Sub
-
     Private Sub SaveAsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveAsToolStripMenuItem.Click
         saveAs.Filter = "All files | *.*"
         saveAs.Title = "Save As New File"
@@ -63,6 +51,20 @@ Public Class Form1
             Me.editorText.SaveFile(saveAs.FileName, RichTextBoxStreamType.PlainText)
             MessageBox.Show("Save succesfully!", "Save")
             statusLabel.Text = "Open file = " + saveAs.FileName
+        End If
+
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        If String.IsNullOrEmpty(selectFile.FileName) And String.IsNullOrEmpty(saveAs.FileName) Then
+            MessageBox.Show("Anda belum membuka file!. Gunakan Save As untuk menyimpan sebagai file baru!", "Warning!")
+            SaveAsToolStripMenuItem_Click(sender, e)
+        ElseIf selectFile.FileName.Length > 0 Then
+            Me.editorText.SaveFile(selectFile.FileName, RichTextBoxStreamType.PlainText)
+            MessageBox.Show("Save succesfully!", "Save")
+        ElseIf saveAs.FileName.Length > 0 Then
+            Me.editorText.SaveFile(saveAs.FileName, RichTextBoxStreamType.PlainText)
+            MessageBox.Show("Save succesfully!", "Save")
         End If
 
     End Sub
