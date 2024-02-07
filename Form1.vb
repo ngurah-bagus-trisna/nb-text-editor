@@ -76,7 +76,4 @@ Public Class Form1
 
     End Sub
 
-    Private Sub labelNumber_Click(sender As Object, e As EventArgs) Handles labelNumber.Click
-
-    End Sub
 End Class
