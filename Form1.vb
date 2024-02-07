@@ -1,5 +1,6 @@
 ﻿Public Class Form1
     Dim selectFile As New OpenFileDialog()
+    Dim saveAs As New SaveFileDialog()
     Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles navBar.ItemClicked
 
     End Sub
@@ -17,12 +18,23 @@
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        Me.editorText.SaveFile(selectFile.FileName, RichTextBoxStreamType.PlainText)
-        MessageBox.Show("Save succesfully!")
+        If String.IsNullOrEmpty(selectFile.FileName) Then
+            MessageBox.Show("Anda belum membuka file. Gunakan Save As untuk menyimpan sebagai file baru.")
+            SaveAsToolStripMenuItem_Click(sender, e)
+        Else
+            Me.editorText.SaveFile(selectFile.FileName, RichTextBoxStreamType.PlainText)
+            MessageBox.Show("Save succesfully!")
+        End If
+
     End Sub
 
     Private Sub SaveAsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveAsToolStripMenuItem.Click
+        saveAs.Filter = "All files | *.*"
+        saveAs.Title = "Save As New File"
 
+        If saveAs.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Me.editorText.SaveFile(saveAs.FileName, RichTextBoxStreamType.PlainText)
+        End If
     End Sub
 
     Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles editorText.TextChanged
