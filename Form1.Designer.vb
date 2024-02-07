@@ -25,13 +25,11 @@ Partial Class Form1
         navBar = New MenuStrip()
         OpenFolderToolStripMenuItem = New ToolStripMenuItem()
         FileToolStripMenuItem = New ToolStripMenuItem()
-        SaveToolStripMenuItem = New ToolStripMenuItem()
         SaveAsToolStripMenuItem = New ToolStripMenuItem()
-        openFolder = New FolderBrowserDialog()
-        openFile = New OpenFileDialog()
+        SaveToolStripMenuItem = New ToolStripMenuItem()
         SplitContainer1 = New SplitContainer()
         folderView = New TreeView()
-        RichTextBox1 = New RichTextBox()
+        editorText = New RichTextBox()
         TextBox1 = New TextBox()
         navBar.SuspendLayout()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
@@ -61,17 +59,17 @@ Partial Class Form1
         FileToolStripMenuItem.Size = New Size(69, 20)
         FileToolStripMenuItem.Text = "Open File"
         ' 
-        ' SaveToolStripMenuItem
-        ' 
-        SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        SaveToolStripMenuItem.Size = New Size(43, 20)
-        SaveToolStripMenuItem.Text = "Save"
-        ' 
         ' SaveAsToolStripMenuItem
         ' 
         SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
         SaveAsToolStripMenuItem.Size = New Size(59, 20)
         SaveAsToolStripMenuItem.Text = "Save As"
+        ' 
+        ' SaveToolStripMenuItem
+        ' 
+        SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        SaveToolStripMenuItem.Size = New Size(43, 20)
+        SaveToolStripMenuItem.Text = "Save"
         ' 
         ' SplitContainer1
         ' 
@@ -85,7 +83,7 @@ Partial Class Form1
         ' 
         ' SplitContainer1.Panel2
         ' 
-        SplitContainer1.Panel2.Controls.Add(RichTextBox1)
+        SplitContainer1.Panel2.Controls.Add(editorText)
         SplitContainer1.Panel2.Controls.Add(TextBox1)
         SplitContainer1.Size = New Size(952, 545)
         SplitContainer1.SplitterDistance = 297
@@ -99,16 +97,16 @@ Partial Class Form1
         folderView.Size = New Size(297, 545)
         folderView.TabIndex = 0
         ' 
-        ' RichTextBox1
+        ' editorText
         ' 
-        RichTextBox1.AcceptsTab = True
-        RichTextBox1.Dock = DockStyle.Fill
-        RichTextBox1.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(0, 0)
-        RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(651, 545)
-        RichTextBox1.TabIndex = 1
-        RichTextBox1.Text = ""
+        editorText.AcceptsTab = True
+        editorText.Dock = DockStyle.Fill
+        editorText.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        editorText.Location = New Point(0, 0)
+        editorText.Name = "editorText"
+        editorText.Size = New Size(651, 545)
+        editorText.TabIndex = 1
+        editorText.Text = ""
         ' 
         ' TextBox1
         ' 
@@ -145,12 +143,10 @@ Partial Class Form1
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents openFolder As FolderBrowserDialog
     Friend WithEvents OpenFolderToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents openFile As OpenFileDialog
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents folderView As TreeView
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents editorText As RichTextBox
 
 End Class
