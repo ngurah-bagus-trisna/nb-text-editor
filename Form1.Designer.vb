@@ -42,7 +42,7 @@ Partial Class Form1
         ' 
         ' navBar
         ' 
-        navBar.Items.AddRange(New ToolStripItem() {OpenFolderToolStripMenuItem, FileToolStripMenuItem, SaveToolStripMenuItem, SaveAsToolStripMenuItem})
+        navBar.Items.AddRange(New ToolStripItem() {OpenFolderToolStripMenuItem, FileToolStripMenuItem, SaveAsToolStripMenuItem, SaveToolStripMenuItem})
         navBar.Location = New Point(0, 0)
         navBar.Name = "navBar"
         navBar.Size = New Size(952, 24)
@@ -88,7 +88,7 @@ Partial Class Form1
         SplitContainer1.Panel2.Controls.Add(RichTextBox1)
         SplitContainer1.Panel2.Controls.Add(TextBox1)
         SplitContainer1.Size = New Size(952, 545)
-        SplitContainer1.SplitterDistance = 317
+        SplitContainer1.SplitterDistance = 297
         SplitContainer1.TabIndex = 1
         ' 
         ' folderView
@@ -96,7 +96,7 @@ Partial Class Form1
         folderView.Dock = DockStyle.Fill
         folderView.Location = New Point(0, 0)
         folderView.Name = "folderView"
-        folderView.Size = New Size(317, 545)
+        folderView.Size = New Size(297, 545)
         folderView.TabIndex = 0
         ' 
         ' RichTextBox1
@@ -106,7 +106,7 @@ Partial Class Form1
         RichTextBox1.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(0, 0)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(631, 545)
+        RichTextBox1.Size = New Size(651, 545)
         RichTextBox1.TabIndex = 1
         RichTextBox1.Text = ""
         ' 
