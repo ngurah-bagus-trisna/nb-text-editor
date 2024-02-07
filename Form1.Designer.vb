@@ -22,10 +22,60 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "Form1"
+        navBar = New MenuStrip()
+        FileToolStripMenuItem = New ToolStripMenuItem()
+        SaveToolStripMenuItem = New ToolStripMenuItem()
+        SaveAsToolStripMenuItem = New ToolStripMenuItem()
+        navBar.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' navBar
+        ' 
+        navBar.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, SaveToolStripMenuItem, SaveAsToolStripMenuItem})
+        navBar.Location = New Point(0, 0)
+        navBar.Name = "navBar"
+        navBar.Size = New Size(952, 24)
+        navBar.TabIndex = 0
+        navBar.Text = "MenuStrip1"
+        ' 
+        ' FileToolStripMenuItem
+        ' 
+        FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        FileToolStripMenuItem.Size = New Size(69, 20)
+        FileToolStripMenuItem.Text = "Open File"
+        ' 
+        ' SaveToolStripMenuItem
+        ' 
+        SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        SaveToolStripMenuItem.Size = New Size(43, 20)
+        SaveToolStripMenuItem.Text = "Save"
+        ' 
+        ' SaveAsToolStripMenuItem
+        ' 
+        SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
+        SaveAsToolStripMenuItem.Size = New Size(59, 20)
+        SaveAsToolStripMenuItem.Text = "Save As"
+        ' 
+        ' Form1
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(952, 569)
+        Controls.Add(navBar)
+        Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        MainMenuStrip = navBar
+        Margin = New Padding(3, 4, 3, 4)
+        Name = "Form1"
+        Text = "NB Text Editor"
+        navBar.ResumeLayout(False)
+        navBar.PerformLayout()
+        ResumeLayout(False)
+        PerformLayout()
     End Sub
+
+    Friend WithEvents navBar As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
 
 End Class
