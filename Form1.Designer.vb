@@ -28,6 +28,8 @@ Partial Class Form1
         SaveToolStripMenuItem = New ToolStripMenuItem()
         SplitContainer1 = New SplitContainer()
         labelNumber = New Label()
+        statusFile = New StatusStrip()
+        statusLabel = New ToolStripStatusLabel()
         editorText = New RichTextBox()
         TextBox1 = New TextBox()
         navBar.SuspendLayout()
@@ -35,6 +37,7 @@ Partial Class Form1
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.Panel2.SuspendLayout()
         SplitContainer1.SuspendLayout()
+        statusFile.SuspendLayout()
         SuspendLayout()
         ' 
         ' navBar
@@ -78,6 +81,7 @@ Partial Class Form1
         ' SplitContainer1.Panel2
         ' 
         SplitContainer1.Panel2.Controls.Add(editorText)
+        SplitContainer1.Panel2.Controls.Add(statusFile)
         SplitContainer1.Panel2.Controls.Add(TextBox1)
         SplitContainer1.Size = New Size(952, 545)
         SplitContainer1.SplitterDistance = 28
@@ -85,13 +89,28 @@ Partial Class Form1
         ' 
         ' labelNumber
         ' 
-        labelNumber.Dock = DockStyle.Fill
+        labelNumber.BackColor = SystemColors.ScrollBar
+        labelNumber.Dock = DockStyle.Left
         labelNumber.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         labelNumber.Location = New Point(0, 0)
         labelNumber.Name = "labelNumber"
         labelNumber.Size = New Size(28, 545)
         labelNumber.TabIndex = 0
         labelNumber.Text = "1"
+        ' 
+        ' statusFile
+        ' 
+        statusFile.Items.AddRange(New ToolStripItem() {statusLabel})
+        statusFile.Location = New Point(0, 523)
+        statusFile.Name = "statusFile"
+        statusFile.Size = New Size(920, 22)
+        statusFile.TabIndex = 2
+        ' 
+        ' statusLabel
+        ' 
+        statusLabel.Name = "statusLabel"
+        statusLabel.Size = New Size(119, 17)
+        statusLabel.Text = "ToolStripStatusLabel1"
         ' 
         ' editorText
         ' 
@@ -103,7 +122,7 @@ Partial Class Form1
         editorText.Name = "editorText"
         editorText.RightToLeft = RightToLeft.No
         editorText.ScrollBars = RichTextBoxScrollBars.Vertical
-        editorText.Size = New Size(920, 545)
+        editorText.Size = New Size(920, 523)
         editorText.TabIndex = 1
         editorText.Text = ""
         ' 
@@ -135,6 +154,8 @@ Partial Class Form1
         SplitContainer1.Panel2.PerformLayout()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).EndInit()
         SplitContainer1.ResumeLayout(False)
+        statusFile.ResumeLayout(False)
+        statusFile.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -147,5 +168,7 @@ Partial Class Form1
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents editorText As RichTextBox
     Friend WithEvents labelNumber As Label
+    Friend WithEvents statusFile As StatusStrip
+    Friend WithEvents statusLabel As ToolStripStatusLabel
 
 End Class

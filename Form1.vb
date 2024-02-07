@@ -6,7 +6,6 @@ Public Class Form1
     Dim selectFolder As New FolderBrowserDialog()
     Dim saveAs As New SaveFileDialog()
 
-
     Private Sub rtbMain_Scroll(sender As Object, e As EventArgs) Handles editorText.VScroll
         UpdateLineNumbers()
     End Sub
@@ -32,8 +31,6 @@ Public Class Form1
         Next
     End Sub
 
-
-
     Private Sub FileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.Click
 
         selectFile.Filter = "All files |*.*"
@@ -42,6 +39,7 @@ Public Class Form1
 
         If selectFile.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             Me.editorText.Text = FileIO.FileSystem.ReadAllText(selectFile.FileName)
+            statusLabel.Text = "Open file = " + selectFile.FileName
         End If
     End Sub
 
@@ -60,12 +58,23 @@ Public Class Form1
         saveAs.Filter = "All files | *.*"
         saveAs.Title = "Save As New File"
 
+
         If saveAs.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             Me.editorText.SaveFile(saveAs.FileName, RichTextBoxStreamType.PlainText)
             MessageBox.Show("Save succesfully!", "Save")
+            statusLabel.Text = "Open file = " + saveAs.FileName
         End If
 
     End Sub
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If String.IsNullOrEmpty(selectFile.FileName) Then
+            statusLabel.Text = "Unsaved!"
+        End If
 
+    End Sub
+
+    Private Sub labelNumber_Click(sender As Object, e As EventArgs) Handles labelNumber.Click
+
+    End Sub
 End Class
